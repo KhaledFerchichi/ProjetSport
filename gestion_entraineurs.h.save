@@ -1,0 +1,31 @@
+#ifndef GESTION_ENTRAINEURS_H
+#define GESTION_ENTRAINEURS_H
+
+#include &lt;gtk/gtk.h&gt;
+
+// Structure pour représenter un entraîneur (basée sur les champs des interfaces)
+typedef struct {
+int id;
+char nom[100];
+char prenom[100];
+char sexe[10]; // &quot;Homme&quot; ou &quot;Femme&quot;
+char num_tel[20];
+char specialite[100];
+char email[100];
+char date_naissance[20]; // Format &quot;JJ/MM/AAAA&quot;
+char disponibilite[100]; // Centres sportifs, jours, heures, etc.
+char centre_sportif[100];
+char jour[20]; // &quot;Matin&quot;, &quot;Après-M&quot;, &quot;Soir&quot;
+int heure_debut;
+int heure_fin;
+int prive; // 1 pour OUI, 0 pour NON
+} Entraineur;
+// Fonctions utilitaires potentielles (à implémenter dans le .c)
+void init_interface(GtkBuilder *builder);
+void ajouter_entraineur(Entraineur *e);
+void modifier_entraineur(int id, Entraineur *e);
+Entraineur* rechercher_entraineur(int id);
+void supprimer_entraineur(int id);
+void afficher_entraineur(GtkWidget *widget, Entraineur *e);
+void rafraichir_liste_entraineurs(GtkBuilder *builder);
+#endif // GESTION_ENTRAINEURS_H
